@@ -1,23 +1,22 @@
-# smart-link-template
-Smart Link Template
-This is a generated template based on your smart links config created from the Notifi Admin Panel
+# parser-template
+Parser Template
+This is a generated template based on your parser config created from the Notifi Admin Panel
 
 ## Prerequisites
-- Node.js and npm installed
+- Docker and VS Code installed
 - Notifi Admin Portal credentials
 - Valid Fusion Source ID and Smart Link ID
 
 ## Installation
 
-Create a new Smart Link project using the following command:
+Create a new parser project using the following command:
 
 ```bash
-npx @notifi-network/create-smart-link --actionSourceId {fusionSourceId} --smartLinkId {smartLinkId}
+npx @notifi-network/create-parser --fusionSourceId {fusionSourceId}
 ```
 
 Replace:
-- `{fusionSourceId}` with your actual Fusion Source ID
-- `{smartLinkId}` with your actual Smart Link ID
+- `{fusionSourceId}` with your actual Fusion Source ID (also referred to as parser ID)
 
 This command will create a new project with all necessary dependencies and configuration files.
 
@@ -30,14 +29,14 @@ npm run auth
 ```
 This will prompt you to log in using your Notifi Admin Portal credentials and will update your `notifi-config` accordingly.
 
-### 2. Initialize Smart Link
+### 2. Initialize parser
 Set up the basic project structure:
 ```bash
-npm run init-smart-link
+npm run init-parser
 ```
 This command will:
 - Generate basic unit tests
-- Create an index file in the `/src` directory with automatically configured inputs based on your Smart Link ID
+- Create an index file in the `/src` directory with automatically configured inputs based on your parser ID
 - Set up basic project scaffolding
 
 ### 3. Development and Testing
@@ -50,7 +49,7 @@ This command compiles the TypeScript code and bundles it using Rollup, helping y
 
 ### 4. Deployment
 
-To deploy your Smart Link action:
+To deploy your parser to Notifi's Fusion hosting:
 ```bash
 npm run upload
 ```
@@ -67,8 +66,8 @@ The template includes several other useful scripts:
 ## Project Structure
 
 After initialization, your project will include:
-- `/src`: Source code directory containing your Smart Link implementation
-- Unit tests for your Smart Link logic
+- `/src`: Source code directory containing your parser implementation
+- Unit tests for your parser
 - Configuration files (TypeScript, Rollup, etc.)
 - Package.json with all necessary dependencies
 

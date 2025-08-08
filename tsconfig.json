@@ -1,13 +1,16 @@
 {
     "compilerOptions": {
-      "target": "ES2020",
-      "module": "NodeNext",
+      "target": "ES2022",
+      "module": "nodenext",
       "moduleResolution": "nodenext",
+      "allowJs": true,
+      "resolveJsonModule": true,
       "declaration": true,
       "outDir": "./dist",
-      "strict": false,
+      "strict": true,
       "esModuleInterop": true,
       "skipLibCheck": true,
+      "noEmit": true,
       "forceConsistentCasingInFileNames": true,
       "baseUrl": ".",
       "paths": {
@@ -15,5 +18,5 @@
       }
     },
     "include": ["src/**/*"],
-    "exclude": ["node_modules", "dist"]
+    "exclude": ["node_modules", "./tests/**/*", "dist"]
   }
