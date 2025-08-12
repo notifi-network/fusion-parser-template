@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand --detectOpenHandles --forceExit",
     "upload": "tsc && npx rollup -c rollup.config.js && npx fusion-utils parser upload",
     "activate": "npx fusion-utils activate ${npm_config_cursor:+--cursor} ${npm_config_cursor:-}",
     "deactivate": "npx fusion-utils deactivate",
