@@ -11,7 +11,7 @@ import * as fs from "fs";
 const testInputFilePath = "./tests/notifi-generated/testBlockOrCheckpoint.json";
 
 const ensureInitCompleted = async () => {
-  if (!fs.existsSync(testInputFilePath)) {
+  if (ParserBlockchainType !== BlockchainType.BLOCKCHAIN_TYPE_OFF_CHAIN && !fs.existsSync(testInputFilePath)) {
     console.error(`Test file not found: ${testInputFilePath}\nIf you skipped the init step to provide a block number to test with, please run 'npm run init-parser' first, ensuring you provide it a valid block/checkpoint number when asked.`);
     throw new Error(`Project initialization not completed`);
   }
