@@ -1,5 +1,5 @@
 import { BlockchainType } from "@notifi-network/fusion-sdk";
-import { parse } from "../src/parser";
+import { parse } from "../src";
 import { init, cleanup } from "./notifi-generated/setup";
 import { getBlockFilter, ParserBlockchainType } from "../src/notifi-generated/fusion-types";
 import * as fs from "fs";

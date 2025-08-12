@@ -2,7 +2,7 @@
   "name": "notifi-fusion-parser",
   "version": "1.0.0",
   "description": "Notifi Fusion Parser",
-  "main": "parser.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand --detectOpenHandles --forceExit",

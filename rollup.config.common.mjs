@@ -24,7 +24,7 @@ export const createRollupConfig = ({
         format: "esm",
         file: `./dist/${fileName}.js`,
         banner: "/* Notifi Fusion Execution Version: 2.0 */",
-        footer: "/* Notifi Fusion Execution Version: 2.0 */"
+        footer: "/* Notifi Fusion Execution Version: 2.0 */",
       },
       {
         format: "cjs",
@@ -38,14 +38,22 @@ export const createRollupConfig = ({
             {
               format: "esm",
               file: `./dist/${fileName}.min.js`,
-              plugins: [terser()],
+              plugins: [terser({
+                format: {
+                  comments: /Notifi Fusion Execution Version/
+                }
+              })],
               banner: "/* Notifi Fusion Execution Version: 2.0 */",
               footer: "/* Notifi Fusion Execution Version: 2.0 */"
             },
             {
               format: "cjs",
               file: `./dist/${fileName}.min.cjs`,
-              plugins: [terser()],
+              plugins: [terser({
+                format: {
+                  comments: /Notifi Fusion Execution Version/
+                }
+              })],
               strict: false,
               banner: "/* Notifi Fusion Execution Version: 2.0 */",
               footer: "/* Notifi Fusion Execution Version: 2.0 */"

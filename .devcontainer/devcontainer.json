@@ -23,7 +23,7 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "npm install",
-	"postStartCommand": "docker stop localfusion || true && docker run -d --name localfusion --rm -p 50052:50052 -p 50053:50053 -p 50054:50054 -p 50055:50055 -p 50056:50056 notifinetwork/localfusion:latest"
+	"postStartCommand": "docker run -d --name localfusion --rm -p 50052:50052 -p 50053:50053 -p 50054:50054 -p 50055:50055 -p 50056:50056 notifinetwork/localfusion:latest"
 
 	// Configure tool-specific properties.
 	// "customizations": {},

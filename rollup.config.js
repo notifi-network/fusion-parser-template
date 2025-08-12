@@ -1,7 +1,7 @@
 import { createRollupConfig } from "./rollup.config.common.mjs";
 
 export default createRollupConfig({
-  inputFiles: ["parser"],
+  inputFiles: ["index"],
   additionalPlugins: [
     {
       name: 'resolve-imports',
