@@ -104,7 +104,7 @@ describe("Parse", () => {
       const parseInput = {
         contextId: "testContext",
         parameters: {
-            blockchainType: BlockchainType.BLOCKCHAIN_TYPE_ETHEREUM,
+            blockchainType: ParserBlockchainType,
             urlForBlob: "redis://test/1234",
         }
       };
@@ -122,7 +122,7 @@ describe("Parse", () => {
           expect(event).toHaveProperty("metadata");
           expect(event).toHaveProperty("isComparisonValueCaseSensitive");
 
-          //expect(event.blockchain).toBe(BlockchainType.BLOCKCHAIN_TYPE_ETHEREUM);
+          expect(event.blockchain).toBe(ParserBlockchainType);
         });
       });
     });
