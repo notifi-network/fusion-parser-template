@@ -1,6 +1,6 @@
 // Uncomment as needed, or remove if not required
 //import { EvmRpc } from "@notifi-network/fusion-sdk";
-import { BlockchainType } from "@notifi-network/fusion-sdk";
+import { BlockchainType, getParserBlobInput } from "@notifi-network/fusion-sdk";
 
 // This is auto generated code for a Notifi Fusion Parser. When you execute 'npm run init-parser', it will create a template for you to start with.
 // You can reference the generated code, but 
@@ -49,6 +49,12 @@ const parse = async (
   // You can use these to make RPC calls or perform any other operations needed for parsing.
   // The contextId is a unique identifier for the parser instance, and parameters may contain additional data.
   const { contextId, parameters } = context;
+  
+  let blobInput;
+  if (parameters.blockchainType !== BlockchainType.BLOCKCHAIN_TYPE_OFF_CHAIN && parameters.urlForBlob) {
+    // If the blockchainType is not OFF_CHAIN, we can use the getParserBlobInput function to get the blob input.
+    blobInput = await getParserBlobInput(contextId, parameters.urlForBlob);
+  }
 
   //
   // Example of how to instantiate an EvmRpc client and make a call to get account balance.
