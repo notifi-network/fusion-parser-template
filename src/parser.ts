@@ -32,7 +32,7 @@ const createEvent = (signature: string, md: any) => {
     eventTypeId: GFT.validResponseEvents./* ----- YOUR EVENT/TOPIC HERE ----- */.id,
     // This should be a value that aligns to what you configured the event to be. * if nothing, or the wallet address of the user or account being alerted on
     comparisonValue: "*",
-    blockchain: BlockchainType.BLOCKCHAIN_TYPE_ETHEREUM, // Replace with the appropriate BlockchainType this parser is emitting events for
+    blockchain: GFT.ParserBlockchainType,
     // Signature of the block, or your own custom signature that is unique for this invocation.
     changeSignature: signature,
     // Metadata to pass through to the templates used for creating the actual notifications being sent out to users. This is also what contains filterParameters used in more advanced alert configs where users can enter thresholds
