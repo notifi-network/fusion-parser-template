@@ -53,16 +53,16 @@ describe("Ensure block filter trigger works", () => {
       // Sui tests
     } else {
       // Assume EVM tests
-
+      const evmBlockFilter = blockFilter as any;
       const block = jsonTestData.block;
       const logs = jsonTestData.logs;
       let matchedForTopicHash = false;
       let matchedForContractAddress = false;
-      if (blockFilter.ContractAddresses.length > 0) {
-        blockFilter.ContractAddresses = blockFilter.ContractAddresses.map(addr => addr.toLowerCase());
+      if (evmBlockFilter.ContractAddresses.length > 0) {
+        evmBlockFilter.ContractAddresses = evmBlockFilter.ContractAddresses.map(addr => addr.toLowerCase());
         // If there are contract addresses, we can test against them
         logs.forEach(log => {
-          if (blockFilter.ContractAddresses.includes(log.address.toLowerCase())) {
+          if (evmBlockFilter.ContractAddresses.includes(log.address.toLowerCase())) {
             matchedForContractAddress = true;
           }
         });
@@ -70,14 +70,14 @@ describe("Ensure block filter trigger works", () => {
         matchedForContractAddress = true;
       }
 
-      if (blockFilter.TopicHashes.length > 0) {
-        blockFilter.TopicHashes = blockFilter.TopicHashes.map(hash => hash.toLowerCase());
+      if (evmBlockFilter.TopicHashes.length > 0) {
+        evmBlockFilter.TopicHashes = evmBlockFilter.TopicHashes.map(hash => hash.toLowerCase());
         // If there are topic hashes, we can test against them
         logs.forEach(log => {
             let anyMatch = false;
             const topics = log.topics?.map(topic => topic.toLowerCase()) || [];
 
-            blockFilter.TopicHashes.forEach( (v, i) => {
+            evmBlockFilter.TopicHashes.forEach( (v, i) => {
               topics.forEach(element => {
                 if (element === v) {
                   anyMatch = true;
