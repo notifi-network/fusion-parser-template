@@ -27,7 +27,7 @@ First, authenticate with your Notifi credentials:
 ```bash
 npm run auth
 ```
-This will prompt you to log in using your Notifi Admin Portal credentials and will update your `notifi-config` accordingly.
+This will prompt you to log in using your Notifi Admin Portal credentials and will update your `notifi-auth` accordingly.
 
 ### 2. Initialize parser
 Set up the basic project structure:
