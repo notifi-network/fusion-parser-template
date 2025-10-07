@@ -33,7 +33,7 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
-    "@notifi-network/fusion-sdk": "0.1.0",
+    "@notifi-network/fusion-sdk": "0.1.1",
     "viem": "1.21.1",
     "zod": "3.22.4"
   }

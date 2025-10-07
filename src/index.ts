@@ -47,13 +47,15 @@ const parse = async (
 ) => {
   // The context object contains the contextId and parameters that are passed to the parser.
   // You can use these to make RPC calls or perform any other operations needed for parsing.
-  // The contextId is a unique identifier for the parser instance, and parameters may contain additional data.
+  // The contextId is a unique identifier for the parser instance which must be used with the
+  // @notifi-network/fusion-sdk, and parameters may contain additional data.
   const { contextId, parameters } = context;
   
   let blobInput;
   if (parameters.blockchainType !== BlockchainType.BLOCKCHAIN_TYPE_OFF_CHAIN && parameters.urlForBlob) {
     // If the blockchainType is not OFF_CHAIN, we can use the getParserBlobInput function to get the blob input.
     blobInput = await getParserBlobInput(contextId, parameters.urlForBlob);
+    // You can type blobInput based on EVM, Solana or Sui
   }
 
   //
