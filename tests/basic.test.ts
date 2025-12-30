@@ -1,4 +1,4 @@
-import { BlockchainType } from "@notifi-network/fusion-sdk";
+import { BlockchainType, EphemeralStorage } from "@notifi-network/fusion-sdk";
 import { parse } from "../src";
 import { init, cleanup } from "./notifi-generated/setup";
 import { getBlockFilter, ParserBlockchainType } from "../src/notifi-generated/fusion-types";
@@ -45,7 +45,8 @@ describe("Ensure block filter trigger works", () => {
       return;
     }
 
-    const jsonTestData = JSON.parse(await fs.promises.readFile(testInputFilePath, "utf-8"));
+    const storage = new EphemeralStorage("testCtxId");
+    const jsonTestData = await storage.get({keys: ["redis://test/1234"]});
     
     if (ParserBlockchainType === BlockchainType.BLOCKCHAIN_TYPE_SOLANA) {
       // Solana tests
@@ -125,6 +126,6 @@ describe("Parse", () => {
           expect(event.blockchain).toBe(ParserBlockchainType);
         });
       });
-    });
+    }, typeof process !== 'undefined' && process.env.NODE_OPTIONS?.includes('--inspect') ? 600000 : 10000);
   });
 });
